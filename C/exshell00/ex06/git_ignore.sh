@@ -1,3 +1,3 @@
 #!/bin/bash
 
-git log -5
+ls -1a
