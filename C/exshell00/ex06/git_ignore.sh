@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ls -1a
+git ls-files -o -i --exclude-standard
