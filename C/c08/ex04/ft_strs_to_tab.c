@@ -28,18 +28,15 @@ struct s_stock_str *ft_strs_to_tab(int ac, char **av){
 	while(*av){
 		len = ft_strlen(*av);
 		result[i].size = len;
-		result[i].str = malloc(len + 1);
+		result[i].str = *av;
 		result[i].copy = malloc(len + 1);
-		if(!result[i].str || !result[i].copy){
+		if(!result[i].copy){
 			do{
-			free(result[i].str);
-			free(result[i].copy);
-			i--;
+			free(result[--i].copy);
 			}while (i >= 0);
 			free(result);
 			return NULL;
 			}
-		ft_strcpy(result[i].str,*av);
 		ft_strcpy(result[i].copy,*av);
 		i++;
 		av++;
