@@ -8,14 +8,16 @@ char *error_msg[] = {"File name missing.","Too many arguments.","Cannot read fil
 int main(int argc, char **argv){
 	if(argc < 2){
 		ft_puts(error_msg[0]);
+		return -1;
 	}else if(argc > 2){
 		ft_puts(error_msg[1]);
+		return -1;
 	}
 	
 	int file = open(argv[1], O_RDONLY);
 	char c;
 	if(file < 0){
-		ft_puts(error_msg[1]);
+		ft_puts(error_msg[2]);
 		return -1;
 	}
 	while(read(file, &c, 1)){
