@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<fcntl.h>
 #include"ft_puts.h"
+#include"ft_putchar.h"
 
 char *error_msg[] = {"File name missing.","Too many arguments.","Cannot read file."};
 
@@ -21,7 +22,12 @@ int main(int argc, char **argv){
 		return -1;
 	}
 	while(read(file, &c, 1)){
-		ft_puts(&c);
+		if(file < 0){
+			ft_puts(error_msg[1]);
+                	return -1;
+		}
+		ft_putchar(c);
 	}
+	close(file);
 	return 0;	
 }
