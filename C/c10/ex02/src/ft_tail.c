@@ -8,15 +8,19 @@ int main(int argc, char **argv){
 		return 1;
 	}
 	if(ft_strcmp(argv[1], "-c")){
-		ft_puts("Wrong flag, Sample input => ./ft_tail -c 35 filename\n");
+		ft_puts(basename(argv[0]));
+		ft_puts("\nWrong flag, Sample input => ./ft_tail -c 35 filename\n");
                 return 1;
 	}
 	if((num = ft_atoi(argv[2])) <= 0){
-                ft_puts("Wrong integer, Sample input => ./ft_tail -c 35 filename\n");
+		ft_puts(basename(argv[0]));
+                ft_puts("\nWrong integer, Sample input => ./ft_tail -c 35 filename\n");
                 return 1;
         } 
 	file = open(argv[3], O_RDONLY);
 	if(file < 0){
+		ft_puts(basename(argv[0]));
+		ft_putchar('\n');
 		ft_puts(strerror(errno));
 		return 1;
 	}
